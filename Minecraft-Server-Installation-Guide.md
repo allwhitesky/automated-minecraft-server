@@ -53,7 +53,18 @@
     aws_secret_access_key=Bsdfkjh....
     aws_session_token=IFHKJAGSF////////FKDJBFKD.....
 
-## Step 3: Create Terraform script
+## Step 3: Create SSH files for the EC2 instance:
+1. Create a new keypair:
+    ```bash 
+    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    ```
+2. Follow the prompts to save the files
+3. Copy the public key to your project directory:
+    ```bash 
+    cp ~/.ssh/id_rsa.pub ~/path/to/your/terraform/project/minecraft.pub
+    ```
+
+## Step 4: Create Terraform script
 1. In your project directory, create a new file:
     ```bash
     touch main.tf
@@ -166,7 +177,7 @@
 7. Now we should see the public IP address of the EC2 instace after the terraform script finishes and we can connect to the server.
 
 
-## Step 4: Access the Minecraft Server
+## Step 5: Access the Minecraft Server
 1. Open Minecraft on your local machine.
 2. Click on "Multiplayer" and then "Add Server".
 3. Enter the public IP address of your EC2 instance and click "Done".
